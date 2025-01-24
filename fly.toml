@@ -6,5 +6,22 @@
 app = 'procuratio-fra'
 primary_region = 'fra'
 
+kill_timeout = 30
+swap_size_mb = 256
+
 [[vm]]
 size = 'shared-cpu-1x'
+
+[build]
+image = "tailscale/tailscale:v1.78.1"
+
+[mounts]
+source = "procuratio-fra"
+destination = "/data"
+initial_size = "1gb"
+
+[deploy]
+strategy = "rolling"
+
+[env]
+TAILSCALE_HOSTNAME = "procuratio-fra"
