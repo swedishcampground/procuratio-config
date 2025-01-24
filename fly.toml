@@ -16,7 +16,7 @@ size = 'shared-cpu-1x'
 image = "tailscale/tailscale:v1.78.1"
 
 [mounts]
-source = "procuratio-fra"
+source = "procuratio_fra_data"
 destination = "/data"
 initial_size = "1gb"
 
@@ -24,4 +24,9 @@ initial_size = "1gb"
 strategy = "rolling"
 
 [env]
-TAILSCALE_HOSTNAME = "procuratio-fra"
+TS_HOSTNAME = "procuratio-fra"
+TS_STATE_DIR = "/data/tailscaled"
+TS_EXTRA_ARGS = "--advertise-connector"
+
+# Set in secrets
+# TS_AUTHKEY = "tskey-auth-…"
