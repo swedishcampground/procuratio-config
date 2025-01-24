@@ -27,6 +27,8 @@ strategy = "rolling"
 TS_HOSTNAME = "procuratio-fra"
 TS_STATE_DIR = "/data/tailscaled"
 TS_EXTRA_ARGS = "--advertise-connector"
+# Weird shit, work around it
+PATH = "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
 
 # Set in secrets
 # TS_AUTHKEY = "tskey-auth-…"
